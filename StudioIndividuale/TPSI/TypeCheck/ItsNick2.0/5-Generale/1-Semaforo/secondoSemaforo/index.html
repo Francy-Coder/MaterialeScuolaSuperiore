@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semaforo Automatico</title>
+<style>
+    #semaforo {
+        width: 70px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .luce {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: gray;
+        margin: 10px auto;
+    }
+
+    .rosso.attivo { background-color: red; }
+    .giallo.attivo { background-color: yellow; }
+    .verde.attivo { background-color: green; }
+
+    button { display: block; margin: 20px auto; padding: 10px 20px; }
+</style>
+</head>
+<body>
+
+<div id="semaforo">
+    <div id="rosso" class="luce rosso"></div>
+    <div id="giallo" class="luce giallo"></div>
+    <div id="verde" class="luce verde"></div>
+</div>
+
+<button id="toggleBtn">Ferma / Riattiva</button>
+
+<script>
+    // Prendo le luci
+    var rosso = document.getElementById("rosso");
+    var giallo = document.getElementById("giallo");
+    var verde = document.getElementById("verde");
+    var toggleBtn = document.getElementById("toggleBtn");
+
+    var stato = 0; // 0=rosso,1=giallo dopo rosso,2=verde,3=giallo dopo verde
+    var intervallo = null;
+
+    // Funzione per aggiornare le luci
+    function cambiaLuce() {
+        rosso.classList.remove("attivo");
+        giallo.classList.remove("attivo");
+        verde.classList.remove("attivo");
+
+        if (stato == 0) {
+            rosso.classList.add("attivo");
+            stato = 1;
+        } else if (stato == 1) {
+            giallo.classList.add("attivo");
+            stato = 2;
+        } else if (stato == 2) {
+            verde.classList.add("attivo");
+            stato = 3;
+        } else if (stato == 3) {
+            giallo.classList.add("attivo");
+            stato = 0;
+        }
+    }
+
+    // Avvia ciclo automatico
+    function startCycle() {
+        if (!intervallo) {
+            intervallo = setInterval(cambiaLuce, 2000);
+        }
+    }
+
+    // Ferma ciclo
+    function stopCycle() {
+        clearInterval(intervallo);
+        intervallo = null;
+    }
+
+    // Gestione click del pulsante
+    toggleBtn.onclick = function() {
+        if (intervallo) {
+            stopCycle();
+        } else {
+            startCycle();
+        }
+    }
+
+    // Accendo inizialmente la luce rossa
+    cambiaLuce();
+    startCycle();
+</script>
+
+</body>
+</html>

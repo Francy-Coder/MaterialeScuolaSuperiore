@@ -1,0 +1,56 @@
+@startuml
+
+:VisitatoriSito: as a1
+:UtentiRegistrati: as a2
+:Impiegati: as a3
+:Amministratori: as a4
+
+Rectangle FunzionalitaVisitatoriSito as r1{
+	(Programmazione dei film) as fv1
+	(Registrarsi) as fv2
+	(Account) as sfv2
+}
+
+Rectangle FunzionalitaUtentiRegistrati as r2{
+	(Prenotare biglietti) as fu1
+	(Posti specifici) as sfu1
+	
+	(Acquistare abbonamenti) as fu2
+	(Gestire cronologia prenotazioni) as fu3
+}
+
+Rectangle FunzionalitaImpiegati as r3{
+	(Gestione sale) as fi1
+	(Film e orari alle proiezioni) as sfi1
+	
+	(Verificano) as fi2
+}
+
+Rectangle FunzionalitaAmministratori as r4 {
+	(Gestione personale) as fa1
+	(Controllo incassi) as fa2
+	(Generazione di report mensili sulle vendite) as fa3
+}
+
+Rectangle FunzionalitaSpecifiche as r5{
+	(Snack e bevande) as fs1
+	(ControlloAutomatico disponibilitaPosti) as fs2
+}
+
+a1 --> r1 
+fv2 --> sfv2 : ottenere
+
+a2 --> r2
+fu1 --> sfu1 : scegliendo
+fu2 --> fu1 : sconti
+
+a3 --> r3
+fi1 --> sfi1 : assegnando
+fi2 --> fu1
+
+a4 --> r4
+
+fu1 --> fs1 : aggiungere al carello
+fu1 --> fs2
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+
+:Clienti: as a1
+:Freelance: as a2
+:Amministratori: as a3
+
+rectangle FunzionalitaClienti as r1 {
+    (Registrarsi) as fc1
+    (Cercare freelance per categoria) as fc2
+    (Ricevere preventivi) as fc3
+    (Inviare pagamenti) as fc4
+    (Lavori completati) as sfc1
+    (Avviare progetto urgente con tariffa extra) as sfc2
+}
+
+rectangle FunzionalitaFreelance as r2 {
+    (Creare profilo con portfolio) as ff1
+    (Rispondere alle richieste di preventivo) as ff2
+    (Caricare i lavori completati per i clienti) as ff3
+    (Acquistare piano Premium) as ssff1
+    (Maggiore visibilità nei risultati di ricerca) as sssff1
+}
+
+rectangle FunzionalitaAmministratori as r3 {
+    (Gestire approvazione nuovi account) as fa1
+    (Monitorare transazioni economiche) as fa2
+    (Intervenire in caso di dispute tra clienti e freelance) as fa3
+}
+
+a1 --> r1
+a2 --> r2
+a3 --> r3
+
+fc4 --> sfc1 : per
+sfc2 --> fc4 : pagamento extra
+ssff1 --> sssff1 : conferisce
+
+@enduml

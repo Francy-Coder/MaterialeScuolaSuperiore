@@ -1,0 +1,24 @@
+Descrizione
+Si scriva un programma Java che simuli la gestione di una magazzino dalla capacità limitata, con un ispettore che fa controlli su di esso. 
+
+Requisiti:
+
+Magazzino:
+Ha capacità limitata N
+Il numero di produttori P deve essere strettamente maggiore di N
+Se l’ispettore ha acceduto al magazzino, nessun altro può accedere fino al completamento del suo lavoro.
+Un ArrayList può aiutare… 
+
+Produttore:
+All’infinito, cerca di mettere un numero pari nel magazzino, se può farlo, altrimenti attende.
+
+Consumatore:
+All’infinito, consuma l’ultimo numero inserito nel magazzino, se può farlo, altrimenti attende
+
+Ispettore:
+Ogni 3 secondi accede al magazzino
+Se la somma di tutti gli elementi del magazzino è maggiore o uguale a X, stampa il valore in console e resetta il magazzino.
+Altrimenti mette il numero la somma attuale degli elementi nel primo slot del magazzino.
+
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semaforo</title>
+    <style>
+        /* Contenitore */
+        #semaforo {
+            width: 70px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Luci spente */
+        .luce {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: gray;
+            margin: 10px auto;
+        }
+
+        /* Luci accese */
+        .rosso.attivo { background-color: red; }
+        .giallo.attivo { background-color: yellow; }
+        .verde.attivo { background-color: green; }
+    </style>
+</head>
+<body>
+
+<div id="semaforo">
+    <div id="rosso" class="luce rosso"></div>
+    <div id="giallo" class="luce giallo"></div>
+    <div id="verde" class="luce verde"></div>
+</div>
+
+<button id="cambiaBtn">Avvia ciclo</button>
+
+<script>
+    // Prendiamo i tre div
+    var rosso = document.getElementById("rosso");
+    var giallo = document.getElementById("giallo");
+    var verde = document.getElementById("verde");
+    var bottone = document.getElementById("cambiaBtn");
+
+    // Stato del semaforo: 0=rosso,1=giallo dopo rosso,2=verde,3=giallo dopo verde
+    var stato = 0;
+
+    function cambiaLuce() {
+        // Rimuovo la classe "attivo" da tutte le luci
+        rosso.classList.remove("attivo");
+        giallo.classList.remove("attivo");
+        verde.classList.remove("attivo");
+
+        // Accendo la luce corretta
+        if (stato == 0) {
+            rosso.classList.add("attivo");
+            stato = 1;
+        } else if (stato == 1) {
+            giallo.classList.add("attivo");
+            stato = 2;
+        } else if (stato == 2) {
+            verde.classList.add("attivo");
+            stato = 3;
+        } else if (stato == 3) {
+            giallo.classList.add("attivo");
+            stato = 0;
+        }
+    }
+
+    // Evento click sul bottone
+    bottone.onclick = cambiaLuce;
+
+    // Accendiamo inizialmente la luce rossa
+    cambiaLuce();
+</script>
+
+</body>
+</html>

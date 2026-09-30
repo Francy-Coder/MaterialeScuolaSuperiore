@@ -1,0 +1,10 @@
+UC:
+UC-PrimiEsercizi > Non Sicuri
+UC-Partita di Calcio > Manca Codice su Github
+
+CD:
+CD-PrimiEsempi > Manca Codice su Github
+CD-Prigione > Manca Codice su Github
+CD-CosmoPort > Da Fare
+
+Alcuni di questi sono nel repo: https://github.com/itsNikk/2425-ProgSW

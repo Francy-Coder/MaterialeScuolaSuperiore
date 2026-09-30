@@ -1,0 +1,8 @@
+// logical operators =  used to combine or manipulate Boolean values 
+//                                    (true or false)
+
+// AND = &&
+// OR  = ||
+// NOT = !
+
+https://www.youtube.com/watch?v=ovWYhDVQiR8&list=PLFALFFpPJuLna04_zvtheOFcYIUAlU1xu&index=10
