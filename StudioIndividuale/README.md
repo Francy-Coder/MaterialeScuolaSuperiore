@@ -4,7 +4,7 @@ Youtuber Goated:
 
 - https://www.youtube.com/@CodingWithJohn
 
--https://www.youtube.com/@WebDevSimplified
+- https://www.youtube.com/@WebDevSimplified
 
 - https://www.youtube.com/@Fireship
 
